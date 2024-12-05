@@ -1,0 +1,47 @@
+<div *ngIf="isLoggedIn" class="header">
+    <!-- Botão de toggle com ícone de menu -->
+    <button (click)="toggleMenu()" class="menu-toggle-btn">
+      <mat-icon>menu</mat-icon> <!-- Ícone de menu -->
+    </button>
+    <span id="userName" class="user-name">Gabriel Brandão</span>
+    
+    <!-- Menu expansível -->
+    <div *ngIf="isMenuOpen" class="menu">
+      <ul>
+        <!-- Link para a Home com ícone de home -->
+        <li><a href="/home"><mat-icon>home</mat-icon> Home</a></li>
+        <ng-container *ngIf="isAdmin">
+            <li><a href="/home"><mat-icon>admin_panel_settings</mat-icon>Cliente</a></li>
+            <li><a href="#"><mat-icon>settings</mat-icon> Configurações</a></li>
+            <li><a href="#"><mat-icon>info</mat-icon> Sobre</a></li>
+          </ng-container>
+        <li><a href="/consulta"><mat-icon>perm_identity</mat-icon> Pefil</a></li>
+        <li><a href="/consulta"><mat-icon>monitor_heart</mat-icon> Pré-Consulta</a></li>
+        <li><a href="/consulta"><mat-icon>business</mat-icon> Clínica</a></li>
+        <li><a href="/consulta"><mat-icon>local_hospital</mat-icon> Exame</a></li>
+        <li><a href="/consulta"><mat-icon>date_range</mat-icon> Agendamento</a></li>
+        <li><a href="/consulta"><mat-icon>event</mat-icon> Agenda</a></li>
+        <li><a (click)="logout()"><mat-icon>exit_to_app</mat-icon> Sair</a></li>
+      </ul>
+    </div>
+    <a class="sair" (click)="logout()"><mat-icon>exit_to_app</mat-icon></a>
+  </div>
+  <div *ngIf="!isLoggedIn" class="header">
+    <div class="header-guest">
+      <div class="logo">
+        <mat-icon>computer</mat-icon> Consulta Ágil
+      </div>
+      <nav class="nav-links">
+        <a href="/inicio">Início</a>
+        <a href="/especialidades">Especialidades</a>
+        <a href="/exames">Exames</a>
+        <a href="/minha-saude">Minha Saúde</a>
+        <a href="/quem-somos">Quem Somos</a>
+      </nav>
+      <div>
+        <a class="login-btn" href="/cadastro-cliente">Cadastrar</a>
+        <a class="login-btn" (click)="goToLogin()">Entrar</a>
+      </div>
+    </div>
+    
+  </div>

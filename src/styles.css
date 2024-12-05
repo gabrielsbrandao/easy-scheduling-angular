@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+html, body{
+    /* background-image: url(../public/photo-1707130871276-434b78941491.jpeg); */
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.message-box {
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .success {
+    background-color: green;
+  }
+  
+  .error {
+    background-color: red;
+  }
+  

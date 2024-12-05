@@ -1,38 +1,193 @@
+/* Estilos para o contêiner do campo */
+a{
+  text-decoration: none;
+  color: #216464;
+}
+.field {
+  position: relative;  /* Necessário para posicionar o label sobre o input */
+  margin-bottom: 20px; /* Espaçamento entre os campos */
+  width: 100%; /* Ocupa toda a largura disponível */
+}
+
+/* Estilos para o input */
+.field input {
+  background: transparent;
+  border: 1px solid #ccc; /* Borda suave */
+  padding: 12px 8px; /* Espaçamento dentro do campo */
+  width: 100%; /* O input ocupa toda a largura disponível */
+  box-sizing: border-box; /* Para garantir que o padding não afete a largura */
+  font-size: 16px; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+  border-radius: 4px; /* Bordas arredondadas */
+  outline: none; /* Remove o contorno do input ao ser focado */
+  transition: border-color 0.3s ease, padding-top 0.3s ease; /* Transições suaves */
+}
+
+/* Quando o input estiver em foco */
+.field input:focus {
+  border-color: #007bff; /* Cor da borda quando focado */
+  padding-top: 18px; /* Aumenta o padding superior para dar espaço ao label */
+}
+
+/* Estilos para o label */
+.field label {
+  position: absolute;
+  top: 50%;  /* Centraliza verticalmente o label */
+  left: 10px; /* Distância da borda esquerda */
+  font-size: 16px; /* Tamanho da fonte */
+  color: #aaa; /* Cor do label */
+  pointer-events: none; /* Impede que o label interfira na interação com o input */
+  transform: translateY(-50%); /* Centraliza verticalmente */
+  transition: all 0.3s ease; /* Transição suave */
+  z-index: 1; /* Garante que o label fique acima do campo */
+  visibility: hidden;
+}
+
+/* Quando o input tem valor ou está em foco, o label sobe */
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label {
+  top: 5px; /* Eleva o label quando o campo é focado */
+  font-size: 12px; /* Reduz o tamanho da fonte do label */
+  color: #216464; /* Cor do label quando em foco */
+  visibility:visible;
+}
+
+/* Estilos para a span (textos adicionais) */
+.field span {
+  position: absolute;
+  top: 50%; /* Centraliza verticalmente a span */
+  left: 10px; /* Distância da borda esquerda */
+  font-size: 12px; /* Tamanho da fonte da span (menor do que o padrão) */
+  color: #7c7a7a; /* Cor suave para o texto */
+  pointer-events: none; /* Impede que a span interfira na interação com o input */
+  transform: translateY(-50%); /* Centraliza verticalmente */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Transições suaves para a visibilidade */
+  z-index: 0; /* Garante que a span fique abaixo do label */
+}
+
+/* Quando o input não está em foco e está vazio, exibe a span como placeholder */
+.field input:focus + label + span,
+.field input:not(:placeholder-shown) + label + span {
+  visibility: hidden; /* Esconde a span quando o campo está em foco ou tem conteúdo */
+  opacity: 0; /* Faz a span desaparecer suavemente */
+}
+
 .login-container {
-    max-width: 400px;
-    margin: 0 auto;
+  width: 90%; /* A largura será 90% da tela, se estiver em telas menores */
+  max-width: 400px; /* Limite máximo de largura */
+  height: auto; /* Deixa a altura automática para ajustar conforme o conteúdo */
+  max-height: 90%; /* Limite de altura */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 3rem; /* Aumenta o padding para telas menores */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: block; /* Garante que o contêiner se comporte como bloco */
+  /* background-image: url(../../public/photo-1707130871276-434b78941491.jpeg); */
+  font-family: "FF Mark W05", sans-serif;
+  text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    background-color: rgb(218, 214, 214);
+}
+
+.login-container input {
+  border: none; /* Sem borda */
+  padding: 15px 8px 15px 8px; /* Espaçamento interno */
+  box-sizing: border-box; /* Inclui padding na largura e altura */
+  height: 60px; /* Altura do campo */
+  display: block; /* Para garantir que o input ocupe toda a largura disponível */
+  outline: none; /* Remove o contorno do input ao ser focado */
+  width: 100%; /* O input ocupa toda a largura do contêiner */
+  line-height: 18px; /* Alinha o texto verticalmente */
+  font-size: 18px; /* Tamanho da fonte */
+  font-weight: 700; /* Peso da fonte */
+  font-family: "FF Mark W05", sans-serif; /* Fonte personalizada */
+  background-color: rgba(40, 106, 167, 0.1);
+  margin-bottom: 1rem;  
+  
+}
+
+/* Foco do input: Quando o campo está em foco, a cor do texto muda */
+.login-container input:focus {
+  border-bottom: 2px solid #216464; /* Borda inferior azul */
+  
+}
+
+/* Estilo para o placeholder nos inputs */
+.login-container input::placeholder {
+    font-family: "FF Mark W05", sans-serif;
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    font-size: 12.64px;
+    left: 16px;
+    top: 22px;
+    opacity: 1;
+    height: 17.33px;
+    pointer-events: none;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity;
+}
+
+/* Estilos para o título */
+h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Centralização do botão de login */
+.button-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Estilos do botão de login */
+button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #216464;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+button:hover {
+  background-color: #103f3f;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .login-container {
+    width: 95%;
+    max-width: 350px;
     padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
+
   button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
+    padding: 1rem;
+    font-size: 1rem;
   }
-  
-  button:hover {
-    background-color: #0056b3;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 95%;
+    max-width: 300px;
+    padding: 1rem;
   }
-  
+}
+/* You can add global styles to this file, and also import other style files */
+:host {
+  display: flex;
+  justify-content: center; /* Alinha o conteúdo horizontalmente */
+  align-items: center; /* Alinha o conteúdo verticalmente */
+  height: 100vh; /* 100% da altura da tela */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Fundo fixo ao rolar a página */
+  /* background-color: #216464; */
+  background-image: url(../../public/BackHome.png);
+}

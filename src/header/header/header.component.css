@@ -1,0 +1,119 @@
+.header {
+  position: fixed; /* Mantém o header fixo */
+  top: 0; /* Posiciona no topo da página */
+  left: 0; /* Alinha ao início da tela */
+  width: 100%; /* Faz o header ocupar toda a largura */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  background-color: #216464; /* Cor do fundo */
+  color: white; /* Cor do texto */
+  display: flex; /* Organiza os elementos do header */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 10px 20px; /* Espaçamento interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra para destacar o header */
+}
+
+  .sair{
+    margin-left: 87%;
+  }
+  .sair :hover{
+    cursor: pointer;
+  }
+  .user-name {
+    position: fixed;
+    margin-right: 15px;
+    margin-left: 60px;
+    font-size: 1.2em;
+    float: right;
+    width: 50%;
+}
+  .menu-toggle-btn {
+    background-color: #216464;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
+  .menu {
+    background-color: #216464;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    width: 200px;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    margin: 10px 0;
+  }
+  
+  .menu ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  .menu ul li a mat-icon {
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+  }
+  
+  .menu ul li a:hover {
+    color: #ddd;
+    cursor: pointer;
+  }
+  .header-guest {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #216464;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .header-guest .logo {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .header-guest .nav-links a {
+    margin-right: 15px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .header-guest .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .header-guest .login-btn {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 30px;
+  }
+  
+  .header-guest .login-btn:hover {
+    background-color: #1976d2;
+  }
+  a{
+    text-decoration: none;
+  }

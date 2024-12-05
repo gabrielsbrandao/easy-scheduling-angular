@@ -1,0 +1,24 @@
+/* home.component.css */
+
+.home-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #f4f6f9; /* Um cinza claro */
+    min-height: 100vh;
+    background-image: url(../../public/BackHome.png);
+    background-size: cover;
+
+  }
+  
+  .home-container h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .home-container p {
+    color: #666;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  

@@ -1,1 +1,89 @@
-<p>cadastro-cliente works!</p>
+<app-header></app-header>
+<div class="container">
+  <h2></h2>
+
+  <!-- Formulário único para dados do cliente e dados de login -->
+  <form (ngSubmit)="onSubmit()" [formGroup]="createClientForm">
+    <div class="form-row">
+      <!-- Seção esquerda: Dados do Cliente -->
+      <div class="left-column">
+        <div class="form-group">
+          <label for="Nome">Nome</label>
+          <input type="text" id="Nome" formControlName="Nome" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <label for="DataNascimento">Data de Nascimento</label>
+          <input type="date" id="DataNascimento" formControlName="DataNascimento" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <label for="Telefone">Telefone</label>
+          <input type="text" id="Telefone" formControlName="Telefone" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="Endereco">Endereço</label>
+          <input type="text" id="Endereco" formControlName="Endereco" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="Numero">Número do Endereço</label>
+          <input type="text" id="Numero" formControlName="Numero" class="form-control" />
+        </div>
+
+        <!-- Dropdown para Doenças -->
+        <div class="custom-dropdown" (click)="toggleDropdown($event)">
+          <input
+            type="text"
+            class="dropdown-input"
+            placeholder="Selecione as Doenças"
+            (click)="toggleDropdown($event)"
+            [value]="selectedDiseasesNames"
+            readonly
+          />
+          <ul *ngIf="isDropdownOpen" class="dropdown-list">
+            <li
+              *ngFor="let disease of diseases"
+              (click)="onDiseaseSelect(disease)"
+              [class.selected]="selectedDiseases.includes(disease.Id)"
+            >
+              {{ disease.Nome }}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Doenças Selecionadas -->
+        <div class="selected-diseases">
+          <span *ngFor="let diseaseId of selectedDiseases" class="selected-item">
+            {{ getDiseaseName(diseaseId) }}
+            <button (click)="removeDisease(diseaseId)" class="remove-btn">x</button>
+          </span>
+        </div>
+      </div>
+
+      <!-- Seção direita: Dados de Login -->
+      <div class="right-column">
+
+        <div class="form-group">
+          <label for="user-email">Email</label>
+          <input type="email" id="user-email" formControlName="Email" placeholder="Digite o email" />
+        </div>
+
+        <div class="form-group">
+          <label for="user-password">Senha</label>
+          <input type="password" id="user-password" formControlName="Senha" placeholder="Digite a senha" />
+        </div>
+
+        <div class="form-group">
+          <label for="user-password-confirm">Confirmar Senha</label>
+          <input type="password" id="user-password-confirm" formControlName="ConfirmaSenha" placeholder="Confirme a senha" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão para enviar o formulário -->
+    <button type="submit" class="btn btn-primary" [disabled]="createClientForm.invalid">Criar Cliente</button>
+  </form>
+</div>
+<app-message></app-message>
