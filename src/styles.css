@@ -3,6 +3,14 @@ html, body{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background-image: url('../public/BackHome.png');  /* Caminho da imagem */
+  background-size: cover;  /* Ajusta a imagem para cobrir toda a tela */
+  background-position: center;  /* Centraliza a imagem */
+  background-repeat: no-repeat;  /* Não repete a imagem */
+  margin: 0;  /* Remove as margens padrão */
+  height: 100vh;  /* Garante que o body ocupe 100% da altura da tela */
+}
 
 .message-box {
     padding: 10px;

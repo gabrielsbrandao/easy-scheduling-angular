@@ -5,13 +5,18 @@ import { HomeComponent } from '../home/home.component';
 import { MessageService } from './message.service';
 import { ConsultaComponent } from '../consulta/consulta.component';
 import { CadastroClienteComponent } from '../cadastro-cliente/cadastro-cliente.component';
+import { ExamFormComponent } from '../exame/exame.component';
+import { CadastroEstabelecimentoComponent } from '../cadastro-estabelecimento/cadastro-estabelecimento.component';
+import { SelecaoCadastroComponent } from '../cadastro/cadastro.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [LoginComponent, RouterModule, HomeComponent, ConsultaComponent, CadastroClienteComponent]
+  imports: [LoginComponent, RouterModule, HomeComponent, ConsultaComponent, CadastroClienteComponent, ExamFormComponent, CadastroEstabelecimentoComponent,
+    
+  ]
 })
 export class AppComponent {
   message: string = '';

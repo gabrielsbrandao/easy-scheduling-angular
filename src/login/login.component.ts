@@ -42,6 +42,7 @@ export class LoginComponent {
         localStorage.setItem('userId', response.user.id);
         localStorage.setItem('userRole', response.user.role);
         localStorage.setItem('isLogged', 'true');
+        
         this.router.navigate(['/home']);
         
       },

@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="selecao-cadastro-container">
+  <h2>Escolha uma opção de cadastro</h2>
+  <form (ngSubmit)="enviarCadastro()">
+    <div class="form-group">
+      <label for="opcaoCadastro">Selecione o tipo de cadastro</label>
+      <select id="opcaoCadastro" [(ngModel)]="opcaoCadastro" name="opcaoCadastro" class="form-control" required>
+        <option value="" disabled selected>Escolha uma opção</option>
+        <option value="cliente">Cadastro de Cliente</option>
+        <option value="clinica">Cadastro de Clínica</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!opcaoCadastro">Ir para o Cadastro</button>
+  </form>
+</div>

@@ -39,7 +39,12 @@ export class CadastroClienteComponent implements OnInit {
       diseaseReports: this.fb.array([]),
       Senha: ['', Validators.maxLength(255)],
       ConfirmaSenha: ['', Validators.maxLength(255)],
-
+      Cep: [],
+      Documento: ['', [
+        Validators.required,
+        Validators.minLength(14),  // Para CPF: 14 caracteres (xxx.xxx.xxx-xx)
+        Validators.maxLength(14)   // Para CPF: 14 caracteres (xxx.xxx.xxx-xx)
+      ]]
       
     });
     
@@ -69,7 +74,8 @@ export class CadastroClienteComponent implements OnInit {
             Telefone: this.createClientForm.value.Telefone,
             Endereco: this.createClientForm.value.Endereco,
             Numero: this.createClientForm.value.Numero,
-            UserId: response.id
+            UserId: response.id,
+            Cep: this.createClientForm.value.Cep,
     
           };
           this.apiService.createClient(clientDTO).subscribe(
@@ -143,5 +149,9 @@ export class CadastroClienteComponent implements OnInit {
   getDiseaseName(diseaseId: number): string {
     const disease = this.diseases.find(d => d.Id === diseaseId);
     return disease ? disease.Nome : '';
+  }
+
+  voltarParaSelecao() {
+    this.router.navigate(['/selecao-cadastro']);
   }
 }

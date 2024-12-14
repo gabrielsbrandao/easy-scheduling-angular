@@ -23,6 +23,14 @@
         </div>
 
         <div class="form-group">
+          <label for="Cep">Cep</label>
+          <input type="text" id="Cep" formControlName="Cep" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="Documento">Documento</label>
+          <input type="text" mask="000.000.000-00" id="Documento" formControlName="Documento" class="form-control" />
+        </div>
+        <div class="form-group">
           <label for="Endereco">Endereço</label>
           <input type="text" id="Endereco" formControlName="Endereco" class="form-control" />
         </div>
@@ -84,6 +92,8 @@
 
     <!-- Botão para enviar o formulário -->
     <button type="submit" class="btn btn-primary" [disabled]="createClientForm.invalid">Criar Cliente</button>
+    <!-- Dentro do seu cadastro-cliente.component.html ou cadastro-estabelecimento.component.html -->
+
   </form>
 </div>
 <app-message></app-message>

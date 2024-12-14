@@ -1,0 +1,145 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 3%;
+    
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    gap: 50px;
+  }
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left-column, .right-column {
+    width: 48%; /* Ajuste para ficar lado a lado */
+  }
+  
+  .left-column {
+    margin-right: 2%;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:disabled {
+    background-color: #d6d6d6;
+  }
+  
+  /* Estilo para o dropdown */
+  .custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .dropdown-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding: 10px 0;
+    list-style-type: none;
+    margin: 0;
+    border-radius: 5px;
+    z-index: 1;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .dropdown-list li {
+    padding: 8px 20px;
+    cursor: pointer;
+  }
+  
+  .dropdown-list li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown-list li.selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .selected-diseases {
+    margin-top: 10px;
+  }
+  
+  .selected-item {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  
+  .remove-btn {
+    margin-left: 5px;
+    background-color: transparent;
+    border: none;
+    color: #ff0000;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .remove-btn:hover {
+    color: #d50000;
+  }
+  
+  :host{
+    background-color: aquamarine;
+  }

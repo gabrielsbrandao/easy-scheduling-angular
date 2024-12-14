@@ -3,13 +3,17 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ApiService } from '../../app/api.service';
 import { Route, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  imports: [CommonModule, MatIconModule]
+  imports: [CommonModule, MatIconModule, FormsModule, MatMenuModule, MatButtonModule]  
 })
 export class HeaderComponent implements OnInit {
 
@@ -18,7 +22,15 @@ export class HeaderComponent implements OnInit {
   isAdmin = false;
   isClient = false;
   isLoggedIn = false;
+  userName = "";
   
+  goToCadastro(tipo: string) {
+    if (tipo === 'cliente') {
+      this.router.navigate(['/cadastro-cliente']);
+    } else if (tipo === 'clinica') {
+      this.router.navigate(['clinica']);
+    }
+  }
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
     console.log('Menu expandido:', this.isMenuOpen);
@@ -39,10 +51,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     // Verifique o papel do usuário assim que o componente for carregado
     this.authService.getUserRole().subscribe(role => {
-      this.isAdmin = localStorage.getItem('userRole') === 'admin';
+      this.isAdmin = localStorage.getItem('userRole') === 'viewer';
       this.isClient = localStorage.getItem('userRole') === 'client';
     });
     this.isLoggedIn = localStorage.getItem('isLogged') === 'true';
+
+    this.userName = localStorage.getItem('userName') || "";
   }
   logout() {
     this.authService.setUserRole('');

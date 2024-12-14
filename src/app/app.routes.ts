@@ -8,12 +8,21 @@ import { LoginComponent } from '../login/login.component'; // Tela de login
 import { AuthGuard } from './auth-guard'; // Guarda de rota
 import { ConsultaComponent } from '../consulta/consulta.component';
 import { CadastroClienteComponent } from '../cadastro-cliente/cadastro-cliente.component';
+import { ExamFormComponent } from '../exame/exame.component';
+import { CadastroEstabelecimentoComponent } from '../cadastro-estabelecimento/cadastro-estabelecimento.component';
+import { SelecaoCadastroComponent } from '../cadastro/cadastro.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cadastro-cliente', component: CadastroClienteComponent },
-  { path: 'consulta', component: ConsultaComponent, canActivate: [AuthGuard]  },
+  { path: 'consulta', component: ConsultaComponent },
+  { path: 'exame', component: ExamFormComponent  },
+  { path: 'clinica', component: CadastroEstabelecimentoComponent  },
+  { path: 'cadastro', component: SelecaoCadastroComponent  },
+
+
+
 
 ];

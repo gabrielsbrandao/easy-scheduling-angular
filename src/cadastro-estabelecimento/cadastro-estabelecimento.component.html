@@ -1,1 +1,100 @@
-<p>cadastro-estabelecimento works!</p>
+<app-header></app-header>
+<div class="container">
+  <h2></h2>
+
+  <!-- Formulário único para dados do cliente e dados de login -->
+  <form (ngSubmit)="onSubmit()" [formGroup]="clinicForm">
+    <div class="form-row">
+      <!-- Seção esquerda: Dados do Cliente -->
+      <div class="left-column">
+        <div class="form-group">
+          <label for="Nome">Nome</label>
+          <input type="text" id="Nome" formControlName="Nome" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <label for="DataNascimento">Data de Nascimento</label>
+          <input type="date" id="DataNascimento" formControlName="DataNascimento" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <label for="Telefone">Telefone</label>
+          <input type="text" id="Telefone" formControlName="Telefone" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="Cep">Cep</label>
+          <input type="text" id="Cep" formControlName="Cep" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="Documento">Documento</label>
+          <input type="text" id="Documento" formControlName="Documento" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="Endereco">Endereço</label>
+          <input type="text" id="Endereco" formControlName="Endereco" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <label for="Numero">Número do Endereço</label>
+          <input type="text" id="Numero" formControlName="Numero" class="form-control" />
+        </div>
+        <label for="especializacoes">Especializações</label>
+        <div class="custom-dropdown" (click)="toggleSpecializationDropdown($event)">
+          <input
+            type="text"
+            id="especializacoes"
+            class="dropdown-input"
+            placeholder="Selecione as Especializações"
+            [value]="selectedSpecializationsNames"
+            readonly
+          />
+          <ul *ngIf="isSpecializationDropdownOpen" class="dropdown-list">
+            <li
+              *ngFor="let specialization of specializations"
+              (click)="onSpecializationSelect(specialization)"
+              [class.selected]="selectedSpecializations.includes(specialization.Id)"
+            >
+              {{ specialization.Nome }}
+            </li>
+          </ul>
+        </div>
+      
+        <!-- Especializações Selecionadas -->
+        <div class="selected-specializations">
+          <span *ngFor="let specializationId of selectedSpecializations" class="selected-item">
+            {{ getSpecializationName(specializationId) }}
+            <button (click)="removeSpecialization(specializationId)" class="remove-btn">x</button>
+          </span>
+        </div>
+      </div>
+
+      <!-- Seção direita: Dados de Login -->
+      <div class="right-column">
+
+        <div class="form-group">
+          <label for="user-email">Email</label>
+          <input type="email" id="user-email" formControlName="Email" placeholder="Digite o email" />
+        </div>
+
+        <div class="form-group">
+          <label for="user-password">Senha</label>
+          <input type="password" id="user-password" formControlName="Senha" placeholder="Digite a senha" />
+        </div>
+
+        <div class="form-group">
+          <label for="user-password-confirm">Confirmar Senha</label>
+          <input type="password" id="user-password-confirm" formControlName="ConfirmaSenha" placeholder="Confirme a senha" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão para enviar o formulário -->
+    <button type="submit" class="btn btn-primary" [disabled]="clinicForm.invalid">Criar Clínica</button>
+    <!-- Dentro do seu cadastro-cliente.component.html ou cadastro-estabelecimento.component.html -->
+
+  </form>
+</div>
+<app-message></app-message>
